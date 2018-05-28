@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { buttonsOrientationType, sizeType } from 'dist/number-picker/lib/number-picker.config';
+import { buttonsOrientationType, sizeType } from './number-picker.config';
 
 @Injectable({
   providedIn: 'root'
