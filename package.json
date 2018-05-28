@@ -1,0 +1,20 @@
+{
+  "name": "number-picker",
+  "author": {
+    "name": "Wajdi BELTAIFA",
+    "email": "beltaifa.wajdi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wajdibeltaifa/ngx-input-spinner.git"
+  },
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/forms": "^6.0.3",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "bootstrap": "^4.1.1"
+  },
+  "dependencies": {
+  }
+}

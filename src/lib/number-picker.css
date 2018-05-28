@@ -1,0 +1,62 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.increase:hover, .decrease:hover {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    background-color: #D8D8D8;
+}
+.increase {
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+}
+.vertical {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.vertical span {
+    line-height: 15px;
+}
+.input-md .vertical span, .input-sm .vertical span {
+    padding: 2px 10px;
+}
+.input-lg .vertical span {
+    padding: 4px 10px;
+}
+.input-xlg .vertical span {
+    padding: 7px 10px;
+}
+.input-md, .input-medium {
+    height: 45px;
+}
+.input-lg, .input-large {
+    height: 50px;
+}
+.input-xlg, .input-xlarge {
+    height: 75px;
+}
+.input-md input, .input-medium input, .input-md span, .input-medium span {
+    font-size: 22px;
+}
+.input-lg input, .input-large input, .input-lg span, .input-large span {
+    font-size: 25px;
+}
+.input-xlg input, .input-xlarge input, .input-xlg span, .input-xlarge span {
+    font-size: 38px;
+}
