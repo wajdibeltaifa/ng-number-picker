@@ -7,7 +7,7 @@ import { NumberPickerService } from '../public_api';
   template: `
   <div class="input-group mb-3 input-{{size}} {{customClass.container}}">
   <!-- Horizontal decrease button orientation -->
-  <div class="input-group-prepend" *ngIf="isHorizontal()">
+  <div class="input-group-prepend" *ngIf="isHorizontal() && showDownButton">
     <span class="input-group-text decrease {{customClass.down}}" (click)="onDecrease($event)"
     (mouseup)="onMouseUp($event, false)" (mousedown)="onMouseDown($event, false)">-</span>
   </div>
@@ -17,6 +17,7 @@ import { NumberPickerService } from '../public_api';
   </div>
   <input type="number" class="form-control" name="input-spin-val"
   [(ngModel)]="value"
+  [readOnly]="inputReadOnly"
   (blur)="onBlur($event)"
   (focus)="onFocus($event)"
   (mousewheel)="mouseWheel && onMouseWheel($event)"
@@ -32,15 +33,16 @@ import { NumberPickerService } from '../public_api';
     <span class="input-group-text {{customClass.postfix}}" [style.borderLeft]="'0'">{{postfix}}</span>
   </div>
   <!-- Horizontal increase button orientation -->
-  <div class="input-group-prepend" *ngIf="isHorizontal()">
+  <div class="input-group-prepend" *ngIf="isHorizontal() && showUpButton">
     <span class="input-group-text increase {{customClass.up}}" [style.borderLeft]="(!postfix) ? '0' : ''" (click)="onIncrease($event)"
     (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)">+</span>
   </div>
   <!-- Vertical buttons orientation -->
   <div class="input-group-append" *ngIf="!isHorizontal()">
     <span class="input-group-text vertical p-0">
-      <span class="{{customClass.up}}" (click)="onIncrease($event)" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)">+</span>
-      <span class="{{customClass.down}}" (click)="onDecrease($event)" (mouseup)="onMouseUp($event, false)"
+      <span *ngIf="showUpButton" class="{{customClass.up}}" (click)="onIncrease($event)" (mouseup)="onMouseUp($event)"
+      (mousedown)="onMouseDown($event)">+</span>
+      <span *ngIf="showDownButton" class="{{customClass.down}}" (click)="onDecrease($event)" (mouseup)="onMouseUp($event, false)"
       (mousedown)="onMouseDown($event, false)">-</span>
     </span>
   </div>
@@ -64,10 +66,13 @@ export class NumberPickerComponent implements OnInit {
   @Input() postfix: string;
   @Input() placeholder: string;
   @Input() buttonsOrientation: buttonsOrientationType;
-  @Input() size: sizeType;
+  @Input() size: sizeType = 'md';
   @Input() customClass: CustomClasses = {};
-  @Input() mouseWheel;
-  @Input() arrowKeys;
+  @Input() mouseWheel = false;
+  @Input() arrowKeys = true;
+  @Input() inputReadOnly = false;
+  @Input() showUpButton = true;
+  @Input() showDownButton = true;
   @Output() valueChange: EventEmitter<number> = new EventEmitter();
   @Output() minReached: EventEmitter<boolean> = new EventEmitter();
   @Output() maxReached: EventEmitter<boolean> = new EventEmitter();
@@ -311,16 +316,9 @@ export class NumberPickerComponent implements OnInit {
     this.max = this.parseVal(this.max) || this.numberPickerService.max;
     this.step = this.parseVal(this.step) || this.numberPickerService.step;
     this.value = this.parseVal(this.value) || this.numberPickerService.value;
-    this.pickStartAfter = this.parseVal(this.pickStartAfter) || this.numberPickerService.pickerStartAfter;
-    this.pickTimer = this.parseVal(this.pickTimer) || this.numberPickerService.pickerTimer;
+    this.pickStartAfter = this.parseVal(this.pickStartAfter) || this.numberPickerService.pickStartAfter;
+    this.pickTimer = this.parseVal(this.pickTimer) || this.numberPickerService.pickTimer;
     this.precision = this.getPrecision(this.step) || this.numberPickerService.precision;
-    this.buttonsOrientation = this.numberPickerService.buttonOrientation;
-    this.size = this.numberPickerService.size;
-    this.mouseWheel = this.numberPickerService.mouseWheel;
-    this.arrowKeys = this.numberPickerService.arrowKeys;
-    this.prefix = this.numberPickerService.prefix;
-    this.postfix = this.numberPickerService.postfix;
-
     this.value = this.round(this.value);
   }
 

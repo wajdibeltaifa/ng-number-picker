@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { buttonsOrientationType, sizeType } from './number-picker.config';
+import { CustomClasses } from 'dist/number-picker/lib/number-picker.config';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NumberPickerService {
   /**
    * Min picker value
@@ -20,11 +19,11 @@ export class NumberPickerService {
   /**
    * Delay for start picking values
    */
-  pickerStartAfter = 500;
+  pickStartAfter = 500;
   /**
    * Delay betweens each pick
    */
-  pickerTimer = 100;
+  pickTimer = 100;
   /**
    * value precision
    */
@@ -33,28 +32,4 @@ export class NumberPickerService {
    * Inital picker value
    */
   value = null;
-  /**
-   * Encrease / decrease buttons orientation (h |v | horizontal | vertical)
-   */
-  buttonOrientation: buttonsOrientationType = 'h';
-  /**
-   * Input size (md | sm | lg | xlg)
-   */
-  size: sizeType = 'md';
-  /**
-   * Enable pick numbers with mouse wheel
-   */
-  mouseWheel = false;
-  /**
-   * Enable pick numbers with arrowKeys (up | down)
-   */
-  arrowKeys = true;
-  /**
-   * Postix input data
-   */
-  postfix = null;
-  /**
-   * Prefix input data
-   */
-  prefix = null;
 }
