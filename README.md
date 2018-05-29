@@ -4,7 +4,7 @@
 [![NPM Release](https://img.shields.io/npm/v/ng-number-picker.svg?style=flat-square)](https://www.npmjs.com/package/ng-number-picker)
 [![NPM Monthly Downloads](https://img.shields.io/npm/dm/ng-number-picker.svg?style=flat-square)](https://www.npmjs.com/package/ng-number-picker)
 
-> A number picker input for `angular 2+` & `bootstrap 4+`. It supports the mousewheel and the up/down keys.
+> A number picker input for `angular 2+` & `bootstrap 4+`. It supports the mousewheel and the up/down keys and increase/decrease input value continuously by long tap the up/down buttons.
 
 ## Getting Started
 
