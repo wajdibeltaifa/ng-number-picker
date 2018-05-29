@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { buttonsOrientationType, sizeType } from './number-picker.config';
-import { CustomClasses } from 'dist/number-picker/lib/number-picker.config';
+import { CustomClasses } from './number-picker.config';
 
 @Injectable()
 export class NumberPickerService {
