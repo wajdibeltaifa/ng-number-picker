@@ -8,13 +8,13 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
+These instructions will get you an copy of the `ng-number-picker` module up and running on your local machine for development purposes. See
+Options & Events for more details.
 ## Try it
 Try it on: [Plunker](https://embed.plnkr.co/JUEIfo/)
 ## Requirements
 
-1. `Angular` ≥ `2.0`
+1. `Angular` ≥ `2.x`
 1. `Bootstrap` ≥ `4.x`
 
 ## Installation
@@ -67,6 +67,34 @@ The following options are the available component inputs :
 | `showUpButton`   | `boolean` | `true` | Show/hide upward button |
 | `showDownButton`   | `boolean` | `true` | Show/hide downword button |
 
+## Default options
+
+You can change the default options values exist in the `NumberPickerService` by creating a `CustomNumberPickerService` similar to the following:
+
+```javascript
+import {NumberPickerModule, NumberPickerService} from 'dist/number-picker';
+
+export class CustomNumberPickerService {
+  min = 10;
+  max = 50;
+  step = 5;
+  precision = 1;
+  pickStartAfter = 100;
+  pickTimer = 100;
+  value = 15;
+}
+
+@NgModule({
+  imports: [
+    NumberPickerModule
+  ],
+  providers: [{provide: NumberPickerService, useClass: CustomNumberPickerService}],
+  ...
+  ...
+  ...
+})
+
+```
 
 ## Events
 **Triggered events**
@@ -74,7 +102,7 @@ The following options are the available component inputs :
 The following events are triggered on the input and can be listened on.
 
 | EVENT        | DISCRIPTION |
-| ------------- |:-------------:|
+| ------------- |:-------------|
 | `valueChange`   | Triggered when the value is changed with one of the +/- buttons |
 | `minReached`      | Triggered when the input value hit the limit set by the `min` option |
 | `maxReached`   | Triggered when the input value hit the limit set by the `max` option |
