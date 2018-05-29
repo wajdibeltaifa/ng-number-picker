@@ -11,7 +11,7 @@
 These instructions will get you an copy of the `ng-number-picker` module up and running on your local machine for development purposes. See
 Options & Events for more details.
 ## Try it
-Try it on: [Plunker](https://embed.plnkr.co/JUEIfo/)
+Try it on: [Plunker](https://embed.plnkr.co/JUEIfo/) or [stackblitz](https://stackblitz.com/edit/ng-number-picker?embed=1&file=src/main.ts)
 ## Requirements
 
 1. `Angular` ≥ `2.x`
