@@ -1,0 +1,20 @@
+{
+  "name": "ng-number-picker",
+  "version": "1.1.4",
+  "license": "MIT",
+  "author": {
+    "name": "Wajdi BELTAIFA",
+    "email": "beltaifa.wajdi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wajdibeltaifa/ng-number-picker.git"
+  },
+  "peerDependencies": {
+    "@angular/forms": "^7.2.12",
+    "@angular/common": "^7.2.12",
+    "@angular/core": "^7.2.12",
+    "bootstrap": "^4.3.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,7 @@
+<div class="col-12">
+    <ng-number-picker [size]="sm" [(value)]="quantity" (valueChange)="onValueChange($event)"></ng-number-picker>
+</div>
+
+<ul>
+    <li *ngFor="let message of messages">{{message}}</li>
+</ul>
