@@ -21,7 +21,7 @@
           "options": {
             "main": "projects/ng-number-picker/src/test.ts",
             "tsConfig": "projects/ng-number-picker/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-number-picker/karma.conf.js"
+            "karmaConfig": "karma.conf.js"
           }
         },
         "lint": {
