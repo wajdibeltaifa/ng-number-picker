@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { buttonsOrientationType, sizeType, CustomClasses } from './number-picker.config';
-import { NumberPickerService } from '../public_api';
+import { NumberPickerService } from './number-picker.service';
 
 @Component({
   selector: 'ng-number-picker',
@@ -111,9 +111,10 @@ export class NumberPickerComponent implements OnInit {
       let wheelUp = null;
       let delta = null;
 
-      if (event.wheelDelta) {
-        delta = event.wheelDelta / 60;
-      } else if (event.detail) {
+      if (event.deltaY) {
+        delta = event.deltaY / 60;
+      }
+      else if (event.detail) {
         delta = -event.detail / 2;
       }
 
@@ -142,6 +143,8 @@ export class NumberPickerComponent implements OnInit {
     } else if (this.value < this.min) {
       this.value = this.min;
     }
+    if(this.parseVal(this.value))
+      this.valueChange.emit(this.value);
   }
 
   onDecrease(event: MouseEvent | MouseWheelEvent | KeyboardEvent) {
@@ -320,6 +323,7 @@ export class NumberPickerComponent implements OnInit {
     this.pickTimer = this.parseVal(this.pickTimer) || this.numberPickerService.pickTimer;
     this.precision = this.getPrecision(this.step) || this.numberPickerService.precision;
     this.value = this.round(this.value);
+    this.placeholder = this.placeholder != undefined  ? this.placeholder : "";
   }
 
 }
