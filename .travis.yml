@@ -1,24 +1,28 @@
-dist: trusty
 sudo: false
-
 language: node_js
 node_js:
   - '8'
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
 cache:
   directories:
-    - ./node_modules
+    - node_modules
+
+addons:
+  chrome: stable
+
+notifications:
+  email: false
+
+git:
+  depth: 3
+
+before_install:
+  - npm install -g npm@~5.3.0
 
 install:
   - npm install
 
 script:
-  - npm run test --watch=false --code-coverage --no-progress --browsers=ChromeCI
-  - npm run build
+  - export CHROME_BIN=chromium-browser
+  - npm run lint
+  - npm run test
