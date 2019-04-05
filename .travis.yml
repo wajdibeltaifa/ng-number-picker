@@ -25,4 +25,4 @@ install:
 script:
   - export CHROME_BIN=chromium-browser
   - npm run lint
-  - npm run build
+  - npm run build:lib
