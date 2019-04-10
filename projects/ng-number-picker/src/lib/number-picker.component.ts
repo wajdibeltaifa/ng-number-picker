@@ -114,10 +114,9 @@ export class NumberPickerComponent implements OnInit {
       if (event.deltaY) {
         delta = event.deltaY / 60;
       }
-      else if (event.detail) {
+      if (event.detail) {
         delta = -event.detail / 2;
       }
-
       if (delta !== null) {
         wheelUp = delta > 0;
       }
@@ -143,8 +142,9 @@ export class NumberPickerComponent implements OnInit {
     } else if (this.value < this.min) {
       this.value = this.min;
     }
-    if(this.parseVal(this.value))
+    if (this.parseVal(this.value)) {
       this.valueChange.emit(this.value);
+    }
   }
 
   onDecrease(event: MouseEvent | MouseWheelEvent | KeyboardEvent) {
@@ -323,7 +323,7 @@ export class NumberPickerComponent implements OnInit {
     this.pickTimer = this.parseVal(this.pickTimer) || this.numberPickerService.pickTimer;
     this.precision = this.getPrecision(this.step) || this.numberPickerService.precision;
     this.value = this.round(this.value);
-    this.placeholder = this.placeholder != undefined  ? this.placeholder : "";
+    this.placeholder = this.placeholder !== undefined ? this.placeholder : '';
   }
 
 }
