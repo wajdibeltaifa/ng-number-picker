@@ -11,10 +11,12 @@
     "url": "https://github.com/wajdibeltaifa/ng-number-picker.git"
   },
   "peerDependencies": {
-    "@angular/forms": "^7.2.12",
-    "@angular/common": "^7.2.12",
-    "@angular/core": "^7.2.12",
+    "@angular/forms": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
+    "@angular/common": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
+    "@angular/core": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
     "bootstrap": "^4.3.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }
