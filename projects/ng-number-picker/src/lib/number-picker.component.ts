@@ -142,9 +142,7 @@ export class NumberPickerComponent implements OnInit {
     } else if (this.value < this.min) {
       this.value = this.min;
     }
-    if (this.parseVal(this.value)) {
-      this.valueChange.emit(this.value);
-    }
+    this.valueChange.emit(this.parseVal(this.value) ? this.value : this.min);
   }
 
   onDecrease(event: MouseEvent | MouseWheelEvent | KeyboardEvent) {
