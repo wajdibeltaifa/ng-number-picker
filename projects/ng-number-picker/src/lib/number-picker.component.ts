@@ -20,7 +20,7 @@ import { NumberPickerService } from './number-picker.service';
   [readOnly]="inputReadOnly"
   (blur)="onBlur($event)"
   (focus)="onFocus($event)"
-  (mousewheel)="mouseWheel && onel($event)"
+  (mousewheel)="mouseWheel && onMouseWheel($event)"
   (keyup)="arrowKeys && onKeyUp($event)"
   (keydown)="arrowKeys && onKeyDown($event)"
   (keydown.arrowup)="arrowKeys && onIncrease($event)"
