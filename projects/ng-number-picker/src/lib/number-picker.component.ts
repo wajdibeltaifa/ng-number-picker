@@ -105,7 +105,7 @@ export class NumberPickerComponent implements OnInit {
     this.isInputFocused = false;
   }
 
-  onMouseWheel(event: MouseWheelEvent) {
+  onMouseWheel(event: WheelEvent) {
     if (this.isInputFocused) {
       event.preventDefault();
       let wheelUp = null;
@@ -147,7 +147,7 @@ export class NumberPickerComponent implements OnInit {
     }
   }
 
-  onDecrease(event: MouseEvent | MouseWheelEvent | KeyboardEvent) {
+  onDecrease(event: MouseEvent | WheelEvent | KeyboardEvent) {
     event.preventDefault();
     if (this.canDecrease()) {
       this.value = this.round((this.value > this.min) ? this.value -= this.step : this.value);
@@ -158,7 +158,7 @@ export class NumberPickerComponent implements OnInit {
     event.stopPropagation();
   }
 
-  onIncrease(event: MouseEvent | MouseWheelEvent | KeyboardEvent) {
+  onIncrease(event: MouseEvent | WheelEvent | KeyboardEvent) {
     event.preventDefault();
     if (this.canIncrease()) {
       this.value = this.round((this.value < this.max) ? this.value += this.step : this.value);
