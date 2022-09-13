@@ -30,6 +30,7 @@ import {NumberPickerModule} from 'ng-number-picker';
   ...
 })
 ```
+If you are using Angular >=9, you need to run `npx ngcc` to transform the module for the Ivy engine.
 
 Run `npm install --save bootstrap` from the command line to install `Bootstrap` ≥ `4.x`, then include the style into your `angular.json` file (or `angular-cli.json` for `angular` version < 6.0) similar to the following:
 
